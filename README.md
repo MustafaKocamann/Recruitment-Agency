@@ -15,21 +15,9 @@
 
 ---
 
-## 📸 Demo
+## � Notebook Preview
 
-![Recruitment Agency Dashboard](https://img.shields.io/badge/GIF_PLACEHOLDER-Dashboard_Walkthrough-ff69b4?style=for-the-badge)
-
-*Replace with actual dashboard GIF at: `assets/demo-dashboard.gif`*
-
-<details>
-<summary><b>🎬 Watch Features in Action</b></summary>
-
-- 🔍 **[Candidate Search & Filtering GIF](assets/search-demo.gif)** — Find top talent in seconds
-- 📋 **[Pipeline Management GIF](assets/pipeline-demo.gif)** — Visual hiring workflow
-- 📧 **[Bulk Outreach GIF](assets/outreach-demo.gif)** — Automated candidate engagement
-- 📊 **[Analytics Dashboard GIF](assets/analytics-demo.gif)** — Real-time recruitment metrics
-
-</details>
+This project is built as an interactive Jupyter notebook (`main.ipynb`) that you can run directly in your environment or browser.
 
 ---
 
@@ -49,46 +37,24 @@
 
 | Feature | Description |
 |---------|-------------|
-| 🔎 **Smart Candidate Profiles** | Searchable, filterable candidate database with custom fields |
-| 🔄 **Flexible Job Pipelines** | Configurable hiring workflows tailored to your process |
-| 📥 **Bulk Import/Export** | CSV & Excel support for seamless data management |
-| 🔐 **Role-Based Access** | Granular permissions and audit logs for compliance |
-| 🔗 **REST API** | Integrate with your favorite ATS, CRM, or analytics tools |
-| ⚡ **Automated Outreach** | Email sequences, reminders, and follow-up automation |
-| 📊 **Analytics Dashboard** | Track pipeline metrics, conversion rates, and KPIs |
-| 🌙 **Dark Mode** | Eye-friendly interface for long recruiting sessions |
+| � **Interactive Jupyter Notebook** | Runnable analysis and data processing in a single notebook |
+| 📊 **Data Analysis & Visualization** | Analyze recruitment metrics and candidate data |
+| 🐍 **Pure Python** | Simple, clean Python implementation without heavy dependencies |
+| 📥 **CSV Support** | Load and process candidate data from CSV files |
+| 📈 **Easy to Extend** | Modify cells and add custom analysis logic |
 
 
 ---
 
 ## 🛠️ Technology Stack
 
-<table>
-  <tr>
-    <td><b>Backend</b></td>
-    <td>Python 3.10+, FastAPI, Uvicorn</td>
-  </tr>
-  <tr>
-    <td><b>Database</b></td>
-    <td>PostgreSQL (primary), Redis (caching & jobs)</td>
-  </tr>
-  <tr>
-    <td><b>Frontend</b></td>
-    <td>React / Vue (optional SPA)</td>
-  </tr>
-  <tr>
-    <td><b>Task Queue</b></td>
-    <td>Celery + Redis for background jobs</td>
-  </tr>
-  <tr>
-    <td><b>DevOps</b></td>
-    <td>Docker, GitHub Actions, AWS/GCP</td>
-  </tr>
-  <tr>
-    <td><b>Monitoring</b></td>
-    <td>Prometheus, Grafana (optional)</td>
-  </tr>
-</table>
+| Component | Details |
+|-----------|---------|
+| **Language** | Python 3.10+ |
+| **Notebook** | Jupyter Notebook |
+| **Data Processing** | pandas, numpy |
+| **Visualization** | matplotlib, seaborn, plotly (as needed) |
+| **Environment** | Virtual environment (venv) |
 
 ---
 
@@ -97,10 +63,8 @@
 ### 📋 Requirements
 
 - **Python 3.10+**
-- **PostgreSQL 12+** (or SQLite for development)
-- **Redis 6+** (for background tasks)
+- **pip**
 - **Git**
-- **pip** or **Poetry**
 
 ### 📦 Installation
 
@@ -129,160 +93,110 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-**4️⃣ Configure environment:**
+### ▶️ Run the Notebook
+
+**Start Jupyter Notebook:**
 
 ```bash
-cp .env.example .env
-# Edit .env with your database credentials, JWT secret, etc.
+jupyter notebook
 ```
 
-**5️⃣ Initialize the database:**
+This will open your browser to `http://localhost:8888`. Click on `main.ipynb` to open the notebook.
+
+**Or use Jupyter Lab (if preferred):**
 
 ```bash
-python -m alembic upgrade head
-```
-
-### ▶️ Run Locally
-
-**Start the backend server:**
-
-```bash
-uvicorn app.main:app --reload
-```
-
-Visit 🌐 **http://localhost:8000** → API docs at `/docs`
-
-**In a separate terminal, start the worker (for background jobs):**
-
-```bash
-celery -A app.tasks worker --loglevel=info
-```
-
-**Start the frontend (if applicable):**
-
-```bash
-cd frontend
-npm install
-npm run dev
+jupyter lab
 ```
 
 ---
 
 ## ⚙️ Configuration
 
-Key environment variables in `.env`:
+Optional environment variables in `.env` (if needed for your use case):
 
 ```env
-DATABASE_URL=postgresql://user:password@localhost/recruitment_db
-REDIS_URL=redis://localhost:6379/0
-JWT_SECRET=your-super-secret-key-here
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USER=your-email@gmail.com
-SMTP_PASSWORD=your-app-password
+# Jupyter configuration (optional)
+JUPYTER_PORT=8888
+JUPYTER_HOST=localhost
+
+# Logging
+LOG_LEVEL=INFO
 ```
+
+Most functionality runs without additional configuration. The notebook can be modified directly for custom behavior.
 
 ---
 
 ## 💡 Usage Examples
 
-### 🌐 Web UI
+### 📓 Working with the Notebook
 
-**Creating a job opening:**
-1. Dashboard → **New Job** → Fill form → **Save**
-2. Share link with recruiting team
-3. Track applicants in real-time
+The `main.ipynb` notebook contains cells for:
 
-**Importing candidates:**
-1. Candidates → **Import** → Upload CSV
-2. Map fields → **Validate** → **Import**
-3. Search and filter by any attribute
+1. **Data Loading** — Import candidate data from CSV
+2. **Data Analysis** — Analyze recruitment metrics and patterns
+3. **Visualizations** — Generate charts and reports
+4. **Processing** — Clean and transform candidate data
+5. **Export** — Save results back to CSV or other formats
 
-### 🔌 API Usage
+### 🔄 Running Cells
 
-**Create a candidate:**
+- Click on a code cell and press `Shift + Enter` to run it
+- Use `Ctrl + A` then `Shift + Enter` to run all cells
+- View inline outputs, charts, and tables directly in the notebook
 
-```bash
-curl -X POST http://localhost:8000/api/v1/candidates \
-  -H "Authorization: Bearer YOUR_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "first_name": "Alex",
-    "last_name": "Taylor",
-    "email": "alex@example.com",
-    "source": "LinkedIn",
-    "skills": ["Python", "FastAPI", "PostgreSQL"]
-  }'
-```
+### 📊 Sample Output
 
-**Response:**
-
-```json
-{
-  "id": "cnd_12345abcde",
-  "first_name": "Alex",
-  "last_name": "Taylor",
-  "email": "alex@example.com",
-  "source": "LinkedIn",
-  "skills": ["Python", "FastAPI", "PostgreSQL"],
-  "created_at": "2026-02-22T14:30:00Z"
-}
-```
+Notebooks typically display:
+- DataFrames in table format
+- Matplotlib/Seaborn plots
+- Summary statistics
+- Filtered candidate lists
 
 ---
 
-## 🏗️ Project Architecture
+## 🏗️ Project Structure
 
 ```
 Recruitment-Agency/
-├── app/
-│   ├── main.py              # FastAPI app entry point
-│   ├── api/                 # API routes
-│   ├── models/              # SQLAlchemy ORM models
-│   ├── schemas/             # Pydantic request/response schemas
-│   ├── services/            # Business logic
-│   ├── tasks/               # Celery background tasks
-│   └── utils/               # Helper functions
-├── migrations/              # Alembic database migrations
-├── tests/                   # Unit & integration tests
+├── main.ipynb               # Main Jupyter Notebook
 ├── requirements.txt         # Python dependencies
-├── .env.example             # Environment template
-├── docker-compose.yml       # Local development stack
-└── README.md                # This file
+├── .env.example             # Environment template (optional)
+├── .gitignore               # Git ignore rules
+├── README.md                # This file
+├── LICENSE                  # MIT License
+├── CONTRIBUTING.md          # Contributing guidelines
+├── CODE_OF_CONDUCT.md       # Code of conduct
+└── venv/                    # Virtual environment (git ignored)
 ```
 
 ---
 
 ## 🧪 Testing
 
-**Run all tests:**
+Testing is integrated directly into the notebook:
 
-```bash
-pytest
-```
+- ✅ Run cells individually to verify outputs
+- ✅ Inspect data at each step with print statements and cell display
+- ✅ Validate calculations and transformations manually
+- ✅ Use assertions to verify expected results
 
-**Run with coverage:**
-
-```bash
-pytest --cov=app tests/
-```
-
-**Run specific test file:**
-
-```bash
-pytest tests/test_candidates.py -v
+Example in notebook:
+```python
+assert len(candidates) > 0, "Candidate list should not be empty"
+assert all('email' in c for c in candidates), "All candidates must have emails"
 ```
 
 ---
 
 ## 🔄 CI / CD
 
-GitHub Actions pipeline runs on every PR:
-- ✅ **Linting** (Flake8, Black, isort)
-- ✅ **Unit Tests** (pytest)
-- ✅ **Type Checking** (mypy)
-- ✅ **Security** (bandit)
-- ✅ **Build & Push** to container registry
+Currently this project is maintained manually. For future enhancement:
+
+- Optional: GitHub Actions for dependency updates
+- Optional: Notebook validation and execution checks
+- Optional: Code linting on PRs
 
 ---
 
