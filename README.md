@@ -217,18 +217,6 @@ Currently this project is maintained manually. For future enhancement:
 
 ---
 
-## 📜 Code of Conduct
-
-We are committed to providing a welcoming environment for all contributors. See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
-
----
-
-## 🔒 Security
-
-**Found a vulnerability?** Please email **security@recruitment-agency.dev** with details. Do NOT open a public issue.
-
----
-
 ## 📄 License
 
 This project is licensed under the **MIT License** — see [LICENSE](LICENSE) for details.
@@ -244,16 +232,13 @@ MIT License © 2026 Mustafa Kocaman
 | | |
 |---|---|
 | 👨‍💻 **Developer** | [Mustafa Kocaman](https://github.com/MustafaKocamann) |
-| 📧 **Email** | support@recruitment-agency.dev |
 | 💬 **Discussions** | [GitHub Discussions](https://github.com/MustafaKocamann/Recruitment-Agency/discussions) |
 | 🐛 **Issues** | [GitHub Issues](https://github.com/MustafaKocamann/Recruitment-Agency/issues) |
 | 📖 **Wiki** | [Project Wiki](https://github.com/MustafaKocamann/Recruitment-Agency/wiki) |
 
 ---
 
-## 🎉 Acknowledgements
 
-Built with ❤️ using cutting-edge open-source technologies. Special thanks to the amazing FastAPI, SQLAlchemy, and PostgreSQL communities.
 
 ---
 
