@@ -9,7 +9,7 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-00a393.svg)](https://fastapi.tiangolo.com)
 [![Status](https://img.shields.io/badge/Status-Active-success.svg)]()
 
-[🌐 Live Demo](#demo) • [📖 Documentation](#quick-start) • [🤝 Contributing](#contributing) • [💬 Support](#contact--support)
+ • [📖 Documentation](#quick-start) • [🤝 Contributing](#contributing) • [💬 Support](#contact--support)
 
 </div>
 
